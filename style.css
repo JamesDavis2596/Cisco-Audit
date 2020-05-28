@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
+
+body {
+    font-family: 'Muli';
+}
+
+.network-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 900px;
+    height: 500px;
+    border-radius: 3px;
+}
+
+button {
+    background: #141C2C;
+    border: none;
+    padding: 10px 50px;
+    font-family: 'Muli';
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 5px;
+    flex: 1;
+    border: 1px solid #141C2C;
+    transition: 0.25s ease-in-out;
+    cursor: pointer; 
+}
+
+button:hover {
+    background: white;
+    color: #141C2C;
+}
+
+button:first-of-type {
+    margin-right: 10px;
+}
+
+.server-selection {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.network-acme-branch {
+    text-align: left;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.connection-box {
+    background: #141C2C;
+    margin-top: 15px; 
+    padding: 20px;
+    color: white;
+    border-radius: 4px;
+}
+
+.sub-connection-box {
+    background: #2C3449;
+    padding: 10px; 
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.sub-sub-connection-box {
+    background: rgb(70, 80, 107);
+    padding: 10px; 
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.back {
+    display: flex;
+    color:  #306BF3;
+    cursor: pointer; 
+}
+
+.back img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.back p {
+    margin-top: 0px;
+    font-weight: 700;
+}
+
+.network-acme-branch {
+    width: 60%;
+}
+
+.network-acme-hq {
+    width: 60%;
+}
+
+.middle {
+    display: flex;
+    justify-content: center;
+}
+
+.server-info {
+    background: #141C2C;
+    width: 25%;
+    border-radius: 4px;
+    padding: 20px;
+    color: white;
+}
+
+code {
+    font-family: monospace;
+    font-size: 17px;
+    background: rgb(70, 80, 107);
+    padding: 2px 4px;
+    border-radius: 2px;
+}
+
+br {
+    margin-bottom: 7px;
+}
+
+[data-tooltip] {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+  
+[data-tooltip]:before,
+[data-tooltip]:after {
+    visibility: hidden;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    pointer-events: none;
+}
+  
+[data-tooltip]:before {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -80px;
+    padding: 7px;
+    width: 300px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: white;
+    color: #fff;
+    content: attr(data-tooltip);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+    color: black;
+    border: 1px solid black;
+}
+
+[data-tooltip]:after {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    border-top: 5px solid #000;
+    border-top: 5px solid #F4FCFC;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    visibility: visible;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+}
+
+.notifications {
+    position: absolute;
+}
+
+.notification {
+    padding: 20px;
+    background: #141C2C;
+    color: white;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.writeup {
+    display: flex;
+    color: #306BF3;
+    cursor: pointer;
+}
+
+.writeup img {
+    margin-right: 5px;
+}
+
+.writeups {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.writeup-text {
+    background: #141C2C;
+    padding: 15px;
+    border-radius: 4px;
+    color: white;
+}
+
+.writeup-text h1 {
+    margin-top: 0px;
+}

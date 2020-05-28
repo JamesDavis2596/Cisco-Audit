@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cisco Network Analysis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="notifications" id="notifications"></div>
+    <div class="network-main" id="main">
+        <div>
+            <h1>ACME Network</h1>
+            <p>Click on one of the servers to view it's children.</p>
+            <div class="menu">
+                <div class="server-selection">
+                    <button onclick="toggleBranch()">ACME Branch</button>
+                    <button onclick="toggleHq()">ACME HQ</button>
+                </div>
+            </div>
+            <div class="writeups">
+                <div class="writeup" style="margin-bottom: 5px;" onclick="showSecurity()">
+                    <img src="icons/shield.svg">
+                    Click to view security writeup
+                </div>
+                <div class="writeup" style="margin-top: 0px" onclick="showArchitecture()">
+                    <img src="icons/server.svg">
+                    Click to view architecture writeup
+                </div>
+            </div>
+
+            <div class="hidden writeup-text" id="security-writeup">
+                <h1>Security</h1>
+                <p>The security at ACME is something that needs to be worked on in a more aggressive manner as there are no firewalls in place throughout any of the infrastructure which will need to be addressed at the earliest as the lack of security features in place is leaving the company at a vulnerable state for someone to attack.</p>
+<p>Following on from this, there seems to be a lack of secure passwords on all of the systems as all are using a simple passphrase like “Cisco123” or “Branch4”. This is seen across all desktop PC’s and network access points. This is leaving the network vulnerable to a brute force/dictionary attack, for someone to then have unlimited access across all systems in the network.</p>
+<p>A security standard should be set in place to change the passwords every 90 days and this can be forced out by using the domain commands by a domain admin.</p>
+                <p>All guest devices currently have access to the whole network without any security measures in place. This is another direct connection into the company's network that will need to be addressed as soon as possible.</p>
+            </div>
+            <div class="hidden writeup-text" id="architecture-writeup">
+                <h1>Architecture</h1>
+                <p>The infrastructure has almost all connections to everything in the network connected via Copper Straight-Through cabling whereas the “Branch Desktop Switch” is using copper crossover cabling and all the access points have access for devices to connect via Wi-Fi.</p>
+<p>There is currently a lack of connection between the “HQ Master Switch” and the “HQ Desktop Switch”. This should be addressed to allow access between the HQ PC’s and the main servers in the network.</p>
+            </div>
+        </div>
+    </div>
+    <div class="middle hidden" id="middle">
+        <div class="network-acme-branch hidden" id="acme-branch">
+            <h1 style="margin-bottom: 0px;">ACME Branch</h1>
+            <div class="server-info">
+                <b>Name:</b> <code>ACMEBranch</code>
+                <br>
+                <b>IP Address:</b> <code>173.173.173.2</code>
+                <br>
+                <b>MAC Address:</b> <code>Unavailable</code>
+            </div>
+            <p>Hover over a device to see more information about it or click it to copy information to clipboard.</p>
+            <div class="back" onclick="toggleBranch()">
+                <img src="icons/corner-up-left.svg">
+                <p>Back to server selection</p>
+            </div>
+            <div class="devices">
+                <ul>
+                    <li class="connection-box">
+                        <b><span data-tooltip="IP: 172.16.5.1 - MAC: 0090.0c62.d705">Branch Office Staff Wireless Switch</span></b>
+                        <ul class="sub-connection-box">
+                            <li>
+                                <span data-tooltip="IP: Unavailable - MAC: Unavailable">Branch Staff Access Point</span>
+                                <ul class="sub-sub-connection-box">
+                                    <li><span data-tooltip="IP: 172.16.5.2 - MAC: 00D0.5867.68DB">Branch Staff Laptop1</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="connection-box">
+                        <b><span data-tooltip="IP: 172.16.10.1 - MAC: 0002.16b3.6677">Branch Office Guest Wireless Switch</span></b>
+                        <ul class="sub-connection-box">
+                            <li>
+                                <span data-tooltip="IP: Unavailable - MAC: Unavailable">Branch Guest Access Point</span>
+                                <ul class="sub-sub-connection-box">
+                                    <li><span data-tooltip="IP: 172.16.10.2 - MAC: 0060.3E75.3943">Branch Guest Laptop1</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="connection-box">
+                        <b><span data-tooltip="IP: 172.16.1.1 - MAC: 000D.BDED.69C2">Branch Office Master Switch</span></b>
+                        <ul class="sub-connection-box">
+                            <li>
+                                <span data-tooltip="IP: Unavailable - MAC: Unavailable">Branch Desktop Switch</span>
+                                <ul class="sub-sub-connection-box">
+                                    <li><span data-tooltip="IP: 172.16.1.11 - MAC: 00D0.FF14.B35A">BranchPC1</span></li>
+                                    <li><span data-tooltip="IP: 172.16.1.12 - MAC: 0001.6323.421C">BranchPC2</span></li>
+                                    <li><span data-tooltip="IP: 172.16.1.13 - MAC: 000D.BD04.2451">BranchPC3</span></li>
+                                    <li><span data-tooltip="IP: 172.16.1.10 - MAC: 00D0.D37A.D284">BranchPC4</span></li>
+                                    <li><span data-tooltip="IP: 172.16.1.14 - MAC: 000C.8574.2112ba">BranchPC5</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="network-acme-hq hidden" id="acme-hq">
+            <h1 style="margin-bottom: 0px;">ACME HQ</h1>
+            <div class="server-info">
+                <b>Name:</b> <code>ACMEHQ</code>
+                <br>
+                <b>IP Address:</b> <code>173.173.173.1</code>
+                <br>
+                <b>MAC Address:</b> <code>Unavailable</code>
+            </div>
+            <p>Hover over a device to see more information about it or click it to copy information to clipboard.</p>
+            <div class="back" onclick="toggleHq()">
+                <img src="icons/corner-up-left.svg">
+                <p>Back to server selection</p>
+            </div>
+            <div class="devices">
+                <ul>
+                    <li class="connection-box">
+                        <b><span data-tooltip="IP: 192.168.5.1 - MAC: 00d0.bc74.cc05">HQ Staff Wireless Switch</span></b>
+                        <ul class="sub-connection-box">
+                            <li>
+                                <span data-tooltip="IP: Unavailable - MAC: Unavailable">HQ Staff Access Point</span>
+                                <ul class="sub-sub-connection-box">
+                                    <li><span data-tooltip="IP: 192.168.5.2 - MAC: 00E0.F904.7730">Staff Laptop Laptop1</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="connection-box">
+                        <b><span data-tooltip="IP: 192.168.10.1 - MAC: 00d0.d347.5022">HQ Guest Wireless Switch</span></b>
+                        <ul class="sub-connection-box">
+                            <li>
+                                <span data-tooltip="IP: Unavailable - MAC: Unavailable">HQ Guest Access Point</span>
+                                <ul class="sub-sub-connection-box">
+                                    <li><span data-tooltip="IP: 192.168.10.2 - MAC: 0010.11DD.744D">HQ Guest Laptop1</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="connection-box">
+                        <b><span data-tooltip="IP: 192.168.1.1 - MAC: 0002.17D0.1EC8">HQ Master Switch</span></b>
+                        <ul class="sub-connection-box">
+                            <li><span data-tooltip="IP: 192.168.1.3 - MAC: 00E0.B060.5020">Mail Server</span></li>
+                            <li><span data-tooltip="IP: 192.168.1.4 - MAC: 00D0.5810.4877">Web Server</span></li>
+                            <li><span data-tooltip="IP: 192.168.1.5 - MAC: 0060.3E3C.E8B0">File Server</span></li>
+                        </ul>
+                    </li>
+                    <li class="connection-box">
+                        <b><span data-tooltip="IP: Unavailable - MAC: Unavailable">HQ Desktop Switch</span><code style="font-family: 'Muli'; margin-left: 10px; font-weight: 400; background: red;">Not connected</code></b>
+                        <ul class="sub-connection-box">
+                            <li><span data-tooltip="IP: 169.254.96.46 - MAC: 0000.0C62.602E">HQPC1</span></li>
+                            <li><span data-tooltip="IP: 169.254.208.113 - MAC: 00D0.97BE.D071">HQPC2</span></li>
+                            <li><span data-tooltip="IP: 192.168.3.17 - MAC: 0060.5C22.6C3B">HQPC3</span></li>
+                            <li><span data-tooltip="IP: 169.254.11.26 - MAC: 00E0.F789.0B1A">HQPC4</span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
